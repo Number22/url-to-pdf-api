@@ -28,7 +28,7 @@ function createApp() {
     logger.info('ALLOW_HTTP=true, unsafe requests are allowed. Don\'t use this in production.');
   }
 
-  app.use(cors());
+  app.use(cors({credentials: true, origin: true}));
 
   // Limit to 10mb if HTML has e.g. inline images
   app.use(bodyParser.text({ limit: '4mb', type: 'text/html' }));
